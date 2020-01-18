@@ -49,6 +49,11 @@ Brightness Mode | Sticker Mode
 
 <br>
 
+
+## Dual Licensing
+
+This repository is offered with a dual licensing model. The version offered here, is GPLv3 licensed, and an MIT version is available as a paid subscription on [xs:code](https://cp.xscode.com/iamutkarshtiwari/Ananas)
+
 ## Getting Started
 Add it in your root build.gradle at the end of repositories:
 ```
