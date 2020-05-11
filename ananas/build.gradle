@@ -61,7 +61,7 @@ publishing {
         bar(MavenPublication) {
             groupId 'com.github.nsocheleau'
             artifactId 'Ananas'
-            version '1.2.5'
+            version '1.2.6'
             artifact(sourceJar)
             artifact("$buildDir/outputs/aar/ananas-release.aar")
             pom.withXml {
