@@ -128,10 +128,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
             Uri outputFileUri = Uri.fromFile(FileUtils.genEditFile());
             intent.putExtra(MediaStore.EXTRA_OUTPUT, outputFileUri);
+            photoURI = outputFileUri;
         } else {
             File file = FileUtils.genEditFile();
             Uri photoUri = FileProvider.getUriForFile(getApplicationContext(), getApplicationContext().getPackageName() + ".provider", file);
             intent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
+            photoURI = photoUri;
         }
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         if (intent.resolveActivity(getApplicationContext().getPackageManager()) != null) {
@@ -272,9 +274,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Single<Bitmap> loadBitmapFromFile(String filePath) {
         return Single.fromCallable(() ->
                 BitmapUtils.getSampledBitmap(
-                        filePath,
-                        imageWidth / 4,
-                        imageHeight / 4
+                        filePath
                 )
         );
     }
