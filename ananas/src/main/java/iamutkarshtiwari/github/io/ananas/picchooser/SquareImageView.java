@@ -4,11 +4,13 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
+import androidx.appcompat.widget.AppCompatImageView;
+
 /**
  * 正方形的ImageView  强制 宽度 = 高度
  *
  */
-public class SquareImageView extends ImageView {
+public class SquareImageView extends AppCompatImageView {
 
     public SquareImageView(final Context context, final AttributeSet attrs) {
         super(context, attrs);

@@ -341,12 +341,10 @@ public class BitmapUtils {
         return resizeBitmap(input, destWidth, destHeight, 0);
     }
 
-    public static Bitmap getSampledBitmap(String filePath, int reqWidth, int reqHeight) {
+    public static Bitmap getSampledBitmap(String filePath) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeFile(filePath, options);
-        int inSampleSize = calculateInSampleSize(options, reqWidth, reqHeight);
-        options.inSampleSize = inSampleSize;
         options.inPreferredConfig = Bitmap.Config.RGB_565;
         options.inJustDecodeBounds = false;
         return BitmapFactory.decodeFile(filePath, options);

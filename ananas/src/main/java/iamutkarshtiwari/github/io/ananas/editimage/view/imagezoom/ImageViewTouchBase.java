@@ -12,6 +12,8 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.ImageView;
 
+import androidx.appcompat.widget.AppCompatImageView;
+
 import iamutkarshtiwari.github.io.ananas.editimage.view.imagezoom.easing.Cubic;
 import iamutkarshtiwari.github.io.ananas.editimage.view.imagezoom.easing.Easing;
 import iamutkarshtiwari.github.io.ananas.editimage.view.imagezoom.graphic.FastBitmapDrawable;
@@ -24,7 +26,7 @@ import iamutkarshtiwari.github.io.ananas.editimage.view.imagezoom.utils.IDisposa
  * @author alessandro
  * 
  */
-public abstract class ImageViewTouchBase extends ImageView implements
+public abstract class ImageViewTouchBase extends AppCompatImageView implements
 		IDisposable {
 
 	public interface OnDrawableChangeListener {

@@ -7,9 +7,9 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.util.AttributeSet;
-import android.widget.SeekBar;
+import androidx.appcompat.widget.AppCompatSeekBar;
 
-public class CustomSeekBar extends SeekBar {
+public class CustomSeekBar extends AppCompatSeekBar {
 
     private Rect rect;
     private Paint paint;

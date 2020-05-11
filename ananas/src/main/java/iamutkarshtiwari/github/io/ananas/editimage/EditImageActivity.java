@@ -86,7 +86,6 @@ public class EditImageActivity extends BaseActivity implements OnLoadingDialogLi
     public ImageViewTouch mainImage;
     public TextStickerView textStickerView;
 
-    private int imageWidth, imageHeight;
     public int mode = MODE_NONE;
     protected boolean isBeenSaved = false;
     protected boolean isPortraitForced = false;
@@ -159,10 +158,6 @@ public class EditImageActivity extends BaseActivity implements OnLoadingDialogLi
     private void initView() {
         loadingDialog = BaseActivity.getLoadingDialog(this, R.string.iamutkarshtiwari_github_io_ananas_loading,
                 false);
-
-        DisplayMetrics metrics = getResources().getDisplayMetrics();
-        imageWidth = metrics.widthPixels;
-        imageHeight = metrics.heightPixels;
 
         bannerFlipper = findViewById(R.id.banner_flipper);
         bannerFlipper.setInAnimation(this, R.anim.in_bottom_to_top);
@@ -377,8 +372,7 @@ public class EditImageActivity extends BaseActivity implements OnLoadingDialogLi
     }
 
     private Single<Bitmap> loadImage(String filePath) {
-        return Single.fromCallable(() -> BitmapUtils.getSampledBitmap(filePath, imageWidth,
-                imageHeight));
+        return Single.fromCallable(() -> BitmapUtils.getSampledBitmap(filePath));
     }
 
     private void showToast(@StringRes int resId) {
