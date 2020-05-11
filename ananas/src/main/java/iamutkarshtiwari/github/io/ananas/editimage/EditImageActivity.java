@@ -161,8 +161,8 @@ public class EditImageActivity extends BaseActivity implements OnLoadingDialogLi
                 false);
 
         DisplayMetrics metrics = getResources().getDisplayMetrics();
-        imageWidth = metrics.widthPixels / 2;
-        imageHeight = metrics.heightPixels / 2;
+        imageWidth = metrics.widthPixels;
+        imageHeight = metrics.heightPixels;
 
         bannerFlipper = findViewById(R.id.banner_flipper);
         bannerFlipper.setInAnimation(this, R.anim.in_bottom_to_top);
