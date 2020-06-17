@@ -52,6 +52,11 @@ class ImageEditorIntentBuilder @JvmOverloads constructor(private val context: Co
         return this
     }
 
+    fun withoutActionBar(): ImageEditorIntentBuilder {
+        intent.putExtra(ACTION_BAR_FEATURE, false)
+        return this
+    }
+
     fun withStickerFeature(): ImageEditorIntentBuilder {
         intent.putExtra(STICKER_FEATURE, true)
         return this
@@ -100,6 +105,7 @@ class ImageEditorIntentBuilder @JvmOverloads constructor(private val context: Co
         const val SATURATION_FEATURE = "saturation_feature"
         const val BEAUTY_FEATURE = "beauty_feature"
         const val STICKER_FEATURE = "sticker_feature"
+        const val ACTION_BAR_FEATURE = "action_bar_feature"
 
         const val SOURCE_PATH = "source_path"
         const val OUTPUT_PATH = "output_path"
