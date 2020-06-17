@@ -283,8 +283,8 @@ public class EditImageActivity extends BaseActivity implements OnLoadingDialogLi
                 saturationFragment.backToMain();
                 break;
             default:
-                if (canAutoExit()) {
-                    onSaveTaskDone();
+                if (numberOfOperations == 0) {
+                    finish();
                 } else {
                     AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
                     alertDialogBuilder.setMessage(R.string.iamutkarshtiwari_github_io_ananas_exit_without_save)
