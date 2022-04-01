@@ -154,6 +154,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     .withSaturationFeature()
                     .withBeautyFeature()
                     .forcePortrait(true)
+                    .withoutActionBar()
                     .build();
 
             EditImageActivity.start(this, intent, ACTION_REQUEST_EDITIMAGE);
