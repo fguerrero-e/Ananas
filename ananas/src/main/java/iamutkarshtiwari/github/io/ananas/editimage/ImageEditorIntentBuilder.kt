@@ -62,6 +62,11 @@ class ImageEditorIntentBuilder @JvmOverloads constructor(private val context: Co
         return this
     }
 
+    fun withEditorTitle(title:String): ImageEditorIntentBuilder {
+        intent.putExtra(EDITOR_TITLE, title)
+        return this
+    }
+
     fun withSourcePath(sourcePath: String): ImageEditorIntentBuilder {
         intent.putExtra(SOURCE_PATH, sourcePath)
         return this
@@ -77,11 +82,16 @@ class ImageEditorIntentBuilder @JvmOverloads constructor(private val context: Co
         return this
     }
 
+    fun setSupportActionBarVisibility(isVisible: Boolean): ImageEditorIntentBuilder {
+        intent.putExtra(SUPPORT_ACTION_BAR_VISIBILITY, isVisible)
+        return this
+    }
+
     @Throws(Exception::class)
     fun build(): Intent {
 
         if (sourcePath.isNullOrBlank()) {
-            throw Exception("Output image path required. Use withOutputPath(path) to provide the output image path.")
+            throw Exception("Source image path required. Use withSourcePath(path) to provide the output image path.")
         } else {
             intent.putExtra(SOURCE_PATH, sourcePath)
         }
@@ -110,5 +120,7 @@ class ImageEditorIntentBuilder @JvmOverloads constructor(private val context: Co
         const val SOURCE_PATH = "source_path"
         const val OUTPUT_PATH = "output_path"
         const val FORCE_PORTRAIT = "force_portrait"
+        const val EDITOR_TITLE = "editor_title"
+        const val SUPPORT_ACTION_BAR_VISIBILITY = "support_action_bar_visibility"
     }
 }
