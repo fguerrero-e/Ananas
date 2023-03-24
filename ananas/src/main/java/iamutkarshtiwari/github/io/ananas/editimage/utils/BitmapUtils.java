@@ -342,9 +342,15 @@ public class BitmapUtils {
     }
 
     public static Bitmap getSampledBitmap(String filePath, int reqWidth, int reqHeight) {
+        // First decode with inJustDecodeBounds=true to check dimensions
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(filePath, options);
+
+        // Calculate inSampleSize
         options.inSampleSize = calculateInSampleSize(options, reqWidth, reqHeight);
+
+        // Decode bitmap with inSampleSize set
         options.inPreferredConfig = Bitmap.Config.RGB_565;
         options.inJustDecodeBounds = false;
         return imageOrientationValidator(BitmapFactory.decodeFile(filePath, options), filePath);
