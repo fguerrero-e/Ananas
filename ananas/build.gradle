@@ -59,7 +59,7 @@ publishing {
         ananas(MavenPublication) {
             groupId 'com.github.nsocheleau'
             artifactId 'ananas'
-            version '1.2.7.3'
+            version '1.2.7.4'
             artifact(sourceJar)
             artifact("$buildDir/outputs/aar/ananas-release.aar")
             pom.withXml {
