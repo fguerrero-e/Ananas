@@ -151,14 +151,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void openAlbumWithPermissionsCheck() {
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
+        if (ActivityCompat.checkSelfPermission(this, getMediaPermission())
                 != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                    new String[]{getMediaPermission()},
                     REQUEST_PERMISSION_STORAGE);
             return;
         }
         openAlbum();
+    }
+
+    private String getMediaPermission() {
+        return Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU ? Manifest.permission.READ_EXTERNAL_STORAGE : Manifest.permission.READ_MEDIA_IMAGES;
     }
 
     private void handleEditorImage(Intent data) {

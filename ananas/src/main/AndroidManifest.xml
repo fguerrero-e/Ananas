@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="iamutkarshtiwari.github.io.ananas">
 
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
     <application>
         <activity
             android:name="iamutkarshtiwari.github.io.ananas.editimage.EditImageActivity"

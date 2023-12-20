@@ -77,7 +77,7 @@ public class EditImageActivity extends BaseActivity implements OnLoadingDialogLi
     public static final int MODE_SATURATION = 9;
     private static final int PERMISSIONS_REQUEST_CODE = 110;
     private final String[] requiredPermissions = new String[]{
-            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU ? Manifest.permission.READ_EXTERNAL_STORAGE : Manifest.permission.READ_MEDIA_IMAGES,
             Manifest.permission.WRITE_EXTERNAL_STORAGE
     };
 
