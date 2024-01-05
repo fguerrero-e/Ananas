@@ -58,7 +58,7 @@ publishing {
         ananas(MavenPublication) {
             groupId 'com.github.nsocheleau'
             artifactId 'ananas'
-            version '1.2.7.4'
+            version '1.2.8'
             artifact(sourceJar)
             artifact("$buildDir/outputs/aar/ananas-release.aar")
             pom.withXml {
@@ -89,8 +89,6 @@ publishing {
                     }
                 }
 
-                // List all "compile" dependencies (for old Gradle)
-                configurations.compile.getDependencies().each { dep -> addDependency(dep, "compile") }
                 // List all "api" dependencies (for new Gradle) as "compile" dependencies
                 configurations.api.getDependencies().each { dep -> addDependency(dep, "compile") }
                 // List all "implementation" dependencies (for new Gradle) as "runtime" dependencies
