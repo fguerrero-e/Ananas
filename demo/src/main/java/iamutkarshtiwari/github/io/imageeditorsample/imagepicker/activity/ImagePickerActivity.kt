@@ -60,6 +60,7 @@ class ImagePickerActivity : ParentActivity(R.layout.activity_main) {
         }
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {
@@ -103,7 +104,7 @@ class ImagePickerActivity : ParentActivity(R.layout.activity_main) {
     }
 
     private fun chooseImage() {
-        startActivityForResult(getPickImageIntent(), RES_IMAGE)
+        startActivityForResult(getPickImageIntent()!!, RES_IMAGE)
     }
 
     private fun getPickImageIntent(): Intent? {
