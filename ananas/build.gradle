@@ -5,7 +5,9 @@ apply plugin: 'kotlin-kapt'
 group='com.github.nsocheleau'
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
+    namespace = "iamutkarshtiwari.github.io.ananas"
+
+    compileSdk rootProject.ext.compileSdkVersion
 
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
@@ -51,7 +53,7 @@ apply plugin: 'maven-publish'
 
 task sourceJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
-    classifier "sources"
+    archiveClassifier.set("sources")
 }
 
 publishing {

@@ -1,7 +1,8 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion project.ext.compileSdkVersion
+    namespace = "io.github.iamutkarshtiwari.ananasproject"
+    compileSdk project.ext.compileSdkVersion
     defaultConfig {
         applicationId "io.github.iamutkarshtiwari.ananasproject"
         minSdkVersion project.ext.minSdkVersion

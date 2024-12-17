@@ -33,7 +33,7 @@ allprojects {
         buildToolsVersion="20.0.0"
         minSdkVersion=21
         targetSdkVersion=33
-        compileSdkVersion=33
+        compileSdkVersion=34
     }
 }
 
