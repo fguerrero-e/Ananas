@@ -17,7 +17,7 @@ android {
             // For ndk-build, instead use the ndkBuild block.
             ndkBuild {
                 // Passes optional arguments to CMake.
-                arguments "-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON"
+//                arguments "-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON"
             }
         }
     }
@@ -31,6 +31,11 @@ android {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
+    /*packagingOptions {
+        jniLibs {
+            useLegacyPackaging = true
+        }
+    }*/
 }
 
 dependencies {
