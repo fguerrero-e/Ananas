@@ -18,6 +18,12 @@
 #define TRANSFORM
 #endif
 
+#ifndef BITMAP
+#define BITMAP
+#endif
+
+struct Bitmap;
+
 static const char FLIP_HORIZONTALLY = 'h';
 static const char FLIP_VERTICALLY = 'v';
 static const char ROTATE_90 = 'r';
@@ -29,3 +35,8 @@ typedef struct {
 	unsigned char* transforms;
 	int size;
 } TransformList;
+
+int doTransforms(struct Bitmap* bitmap, int doRed, int doGreen, int doBlue);
+void flipHorizontally(struct Bitmap* bitmap, int doRed, int doGreen, int doBlue);
+int rotate90(struct Bitmap* bitmap, int doRed, int doGreen, int doBlue);
+void rotate180(struct Bitmap* bitmap, int doRed, int doGreen, int doBlue);

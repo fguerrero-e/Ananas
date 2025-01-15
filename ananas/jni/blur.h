@@ -14,16 +14,18 @@
  * limitations under the License.
  */
 
-#ifndef COLOUR_SPACE
-#define COLOUR_SPACE
+/**
+ * @file blur.h
+ */
+
+#ifdef __cplusplus
+extern "C" {
 #endif
 
-typedef struct {
-    float h;        /* Hue degree between 0.0 and 360.0 */
-    float s;        /* Saturation between 0.0 (gray) and 1.0 */
-    float b;        /* Value between 0.0 (black) and 1.0 */
-} HSBColour ;
+static int fastBlur(int radius, unsigned char* srcRed, unsigned char* srcGreen, unsigned char* srcBlue, int width, int height, unsigned char* dstRed, unsigned char* dstGreen, unsigned char* dstBlue);
 
-void rgbToHsb(unsigned char red, unsigned char green, unsigned char blue, HSBColour* hsb);
-void hsbToRgb(HSBColour* hsb, unsigned char* red, unsigned char* green, unsigned char* blue);
-void getBrightness(unsigned char red, unsigned char green, unsigned char blue, float* brightness);
+int stackBlur(float* radius, unsigned char* srcRed, unsigned char* srcGreen, unsigned char* srcBlue, int* width, int* height, unsigned char* dstRed, unsigned char* dstGreen, unsigned char* dstBlue);
+
+#ifdef __cplusplus
+}
+#endif

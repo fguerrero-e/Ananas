@@ -14,16 +14,20 @@
  * limitations under the License.
  */
 
-#ifndef COLOUR_SPACE
-#define COLOUR_SPACE
+/**
+ * @file matrix.h
+ */
+
+#ifdef __cplusplus
+extern "C" {
 #endif
 
-typedef struct {
-    float h;        /* Hue degree between 0.0 and 360.0 */
-    float s;        /* Saturation between 0.0 (gray) and 1.0 */
-    float b;        /* Value between 0.0 (black) and 1.0 */
-} HSBColour ;
+void identMatrix(float *matrix);
+void saturateMatrix(float matrix[4][4], float* saturation);
+void applyMatrix(Bitmap* bitmap, float matrix[4][4]);
+void applyMatrixToPixel(unsigned char* red, unsigned char* green, unsigned char* blue, float matrix[4][4]);
+void multiplyMatricies(float a[4][4], float b[4][4], float c[4][4]);
 
-void rgbToHsb(unsigned char red, unsigned char green, unsigned char blue, HSBColour* hsb);
-void hsbToRgb(HSBColour* hsb, unsigned char* red, unsigned char* green, unsigned char* blue);
-void getBrightness(unsigned char red, unsigned char green, unsigned char blue, float* brightness);
+#ifdef __cplusplus
+}
+#endif

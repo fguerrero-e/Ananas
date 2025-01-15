@@ -14,16 +14,27 @@
  * limitations under the License.
  */
 
-#ifndef COLOUR_SPACE
-#define COLOUR_SPACE
+/**
+ * @file filter.h
+ */
+struct Bitmap;
+
+#ifdef __cplusplus
+extern "C" {
 #endif
 
-typedef struct {
-    float h;        /* Hue degree between 0.0 and 360.0 */
-    float s;        /* Saturation between 0.0 (gray) and 1.0 */
-    float b;        /* Value between 0.0 (black) and 1.0 */
-} HSBColour ;
+void applyInstafix(struct Bitmap* bitmap);
+void applyAnselFilter(struct Bitmap* bitmap);
+void applyTestino(struct Bitmap* bitmap);
+void applyXPro(struct Bitmap* bitmap);
+void applyRetro(struct Bitmap* bitmap);
+void applyBlackAndWhiteFilter(struct Bitmap* bitmap);
+void applySepia(struct Bitmap* bitmap);
+void applyCyano(struct Bitmap* bitmap);
+void applyGeorgia(struct Bitmap* bitmap);
+int applySahara(struct Bitmap* bitmap);
+int applyHDR(struct Bitmap* bitmap);
 
-void rgbToHsb(unsigned char red, unsigned char green, unsigned char blue, HSBColour* hsb);
-void hsbToRgb(HSBColour* hsb, unsigned char* red, unsigned char* green, unsigned char* blue);
-void getBrightness(unsigned char red, unsigned char green, unsigned char blue, float* brightness);
+#ifdef __cplusplus
+}
+#endif
