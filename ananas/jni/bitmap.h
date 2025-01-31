@@ -97,6 +97,14 @@ typedef struct {
     uint32_t    flags;      // 0 for now
 } AndroidBitmapInfo;
 
+static inline int rgb(int red, int green, int blue);
+
+static inline unsigned char red(int color);
+
+static inline unsigned char green(int color);
+
+static inline unsigned char blue(int color);
+
 /**
  * Given a java bitmap object, fill out the AndroidBitmapInfo struct for it.
  * If the call fails, the info parameter will be ignored.
