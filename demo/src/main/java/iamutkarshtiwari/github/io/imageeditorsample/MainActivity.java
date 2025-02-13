@@ -33,6 +33,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import iamutkarshtiwari.github.io.imageeditorsample.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     public static final int REQUEST_PERMISSION_STORAGE = 1;
@@ -95,20 +96,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         selectAlbum.setOnClickListener(this);
         editImage.setOnClickListener(this);
 
-        loadingDialog = BaseActivity.getLoadingDialog(this, R.string.iamutkarshtiwari_github_io_ananas_loading,
+        loadingDialog = BaseActivity.getLoadingDialog(this, iamutkarshtiwari.github.io.ananas.R.string.iamutkarshtiwari_github_io_ananas_loading,
                 false);
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.edit_image:
-                editImageClick();
-                break;
-            case R.id.photo_picker:
-                selectFromAlbum();
-                break;
-        }
+        if (v.getId() == R.id.edit_image)
+            editImageClick();
+        else if (v.getId() == R.id.photo_picker)
+            selectFromAlbum();
     }
 
     private void editImageClick() {
@@ -132,7 +129,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             EditImageActivity.start(editResultLauncher, intent, this);
         } catch (Exception e) {
-            Toast.makeText(this, R.string.iamutkarshtiwari_github_io_ananas_not_selected, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, iamutkarshtiwari.github.io.ananas.R.string.iamutkarshtiwari_github_io_ananas_not_selected, Toast.LENGTH_SHORT).show();
             Log.e("Demo App", e.getMessage());
         }
     }
@@ -193,7 +190,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         this::setMainBitmap,
                         e -> { e.printStackTrace();
                             Toast.makeText(
-                                this, R.string.iamutkarshtiwari_github_io_ananas_load_error, Toast.LENGTH_SHORT).show();}
+                                this, iamutkarshtiwari.github.io.ananas.R.string.iamutkarshtiwari_github_io_ananas_load_error, Toast.LENGTH_SHORT).show();}
                 );
 
         compositeDisposable.add(applyRotationDisposable);

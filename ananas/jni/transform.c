@@ -18,6 +18,7 @@
 #include <mem_utils.h>
 #include <stdlib.h>
 #include <android/log.h>
+#include <string.h>
 
 #define  LOG_TAG    "transform.c"
 #define  LOGI(...)  __android_log_print(ANDROID_LOG_INFO,LOG_TAG,__VA_ARGS__)
@@ -68,7 +69,7 @@ void addTransformCrop(Bitmap* bitmap, float* left, float* top, float* right, flo
 
 // In memory horizontal flip
 // Can perform flip on entire bitmap on specific colour components specified using the parameter flags
-void flipHorizontally(Bitmap* bitmap, int doRed, int doGreen, int doBlue) {
+void flipHorizontally(struct Bitmap* bitmap, int doRed, int doGreen, int doBlue) {
 	int y, x, leftPos, rightPos;
 
 	if (doRed) {
@@ -204,7 +205,7 @@ static void rotate90Component(unsigned char* componentPixels, unsigned char* rot
 // Rotates an entire bitmap or just individual colour components by 90 degrees clockwise
 // Use the parameter flags to indicate which colour components should be rotated.
 //TODO what about the bitmaps width and height being swapped?
-int rotate90(Bitmap* bitmap, int doRed, int doGreen, int doBlue) {
+int rotate90(struct Bitmap* bitmap, int doRed, int doGreen, int doBlue) {
 	unsigned char* rotatedRed;
 	unsigned char* rotatedGreen;
 	unsigned char* rotatedBlue;
@@ -265,7 +266,7 @@ int rotate90(Bitmap* bitmap, int doRed, int doGreen, int doBlue) {
 }
 
 // Performs an in-memory 180 degrees rotation of an entire bitmap or just a colour component
-void rotate180(Bitmap* bitmap, int doRed, int doGreen, int doBlue) {
+void rotate180(struct Bitmap* bitmap, int doRed, int doGreen, int doBlue) {
 	flipVertically(bitmap, doRed, doGreen, doBlue);
 	flipHorizontally(bitmap, doRed, doGreen, doBlue);
 }
@@ -362,7 +363,7 @@ int crop(Bitmap* bitmap, float* leftPtr, float* topPtr, float* rightPtr, float* 
 	return MEMORY_OK;
 }
 
-int doTransforms(Bitmap* bitmap, int doRed, int doGreen, int doBlue) {
+int doTransforms(struct Bitmap* bitmap, int doRed, int doGreen, int doBlue) {
 	if ((*bitmap).transformList.transforms == NULL) {
 		return MEMORY_OK;
 	}

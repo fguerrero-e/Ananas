@@ -22,7 +22,7 @@
 
 static const int INCONSISTENT_BITMAP_ERROR = 5;
 
-typedef struct {
+typedef struct Bitmap {
 	unsigned int width;
 	unsigned int height;
 
@@ -97,6 +97,14 @@ typedef struct {
     uint32_t    flags;      // 0 for now
 } AndroidBitmapInfo;
 
+static inline int rgb(int red, int green, int blue);
+
+static inline unsigned char red(int color);
+
+static inline unsigned char green(int color);
+
+static inline unsigned char blue(int color);
+
 /**
  * Given a java bitmap object, fill out the AndroidBitmapInfo struct for it.
  * If the call fails, the info parameter will be ignored.
@@ -123,6 +131,20 @@ int AndroidBitmap_lockPixels(JNIEnv* env, jobject jbitmap, void** addrPtr);
  * Call this to balance a successful call to AndroidBitmap_lockPixels.
  */
 int AndroidBitmap_unlockPixels(JNIEnv* env, jobject jbitmap);
+
+int decodeJpegChannel(char* jpegData, int jpegSize, int channel, unsigned char** channelPixels, int* srcWidth, int* srcHeight);
+
+int decodeJpegData(char* jpegData, int jpegSize, int maxPixels, Bitmap* bitmap);
+
+int resizeChannel(unsigned char** channelPixels, int srcWidth, int srcHeight, int maxWidth, int maxHeight);
+
+int initBitmapMemory(Bitmap* bitmap, int width, int height);
+
+void getBitmapRowAsIntegers(Bitmap* bitmap, int y, int* pixels);
+
+void setBitmapRowFromIntegers(Bitmap* bitmap, int y, int* pixels);
+
+void deleteBitmap(Bitmap* bitmap);
 
 #ifdef __cplusplus
 }
