@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     .withBeautyFeature()
                     .withStickerFeature()
                     .withEditorTitle("Photo Editor")
-                    .forcePortrait(true)
+                    .forcePortrait(false)
                     .withoutActionBar()
                     .setSupportActionBarVisibility(false)
                     .build();
